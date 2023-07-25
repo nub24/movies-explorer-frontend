@@ -1,0 +1,151 @@
+.sidebar {
+  box-sizing: border-box;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: right;
+  display: none;
+  z-index: 99;
+}
+
+.sidebar.active {
+  display: flex;
+}
+
+.sidebar__outer {
+  width: 100vw;
+  height: 100vh;
+  background-color: #202020;
+  right: 520px;
+  opacity: 0.3;
+  position: absolute;
+}
+
+@media (max-width: 420px) {
+  .sidebar__outer {
+    right: 100%;
+  }
+}
+
+.sidebar__content {
+  width: 520px;
+  height: 100%;
+  background-color: #202020;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: center;
+  padding-top: 133px;
+}
+
+@media (max-width: 420px) {
+  .sidebar__content {
+    width: 100%;
+    padding-top: 118px;
+  }
+}
+
+.sidebar__items {
+  padding: 0;
+  list-style: none;
+  margin: 0 auto;
+}
+
+.sidebar__item {
+  text-align: center;
+}
+
+.sidebar__item:not(:last-child) {
+  margin-bottom: 28px;
+}
+
+@media (max-width: 420px) {
+  .sidebar__item:not(:last-child) {
+    margin-bottom: 25px;
+  }
+}
+
+.sidebar__item:first-child {
+  margin-top: 28px;
+}
+
+.sidebar__link {
+  color: #fff;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+  transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:hover::before {
+    position: absolute;
+    content: "";
+    width: 96%;
+    border: 1px solid #fff;
+    bottom: -5px;
+  }
+}
+
+@media (max-width: 420px) {
+  .sidebar__link:hover::before {
+    bottom: -7px;
+  }
+}
+
+.sidebar__account-btn {
+  width: 100px;
+  height: 32px;
+  border-radius: 20px;
+  background-color: #313131;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+  color: #fff;
+  margin: 0 auto;
+
+  font-family: "Inter";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  margin-bottom: 175px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.sidebar__btn-close {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  background-image: url(../../images/close-burger.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  position: absolute;
+  top: 23px;
+  right: 23px;
+}
+
+@media (max-width: 420px) {
+  .sidebar__btn-close {
+    top: 15px;
+    right: 15px;
+  }
+}
