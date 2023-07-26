@@ -27,7 +27,10 @@ function Header({ loggedIn }) {
 
   return (
     <header className="header">
-      <div className="header__logo"></div>
+      <Link to={'/'}>
+        <div className="header__logo"></div>
+      </Link>
+      
 
       {!loggedIn && (
         <div className="header__info">

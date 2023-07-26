@@ -8,7 +8,7 @@ import { routesWithHeader, routesWithFooter } from "../../utils/constants.js";
 import Footer from "../Footer/Footer.jsx";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const location = useLocation();
 
   const headerRoutes = routesWithHeader.find((item) => {
