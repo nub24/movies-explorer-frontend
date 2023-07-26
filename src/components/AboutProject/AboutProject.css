@@ -3,6 +3,7 @@
   flex-direction: column;
   width: 100%;
   margin-top: 116px;
+  margin-bottom: 110px;
   padding-left: 70px;
   padding-right: 70px;
   box-sizing: border-box;
@@ -12,17 +13,17 @@
   .about {
     margin-top: 94px;
     margin-bottom: 84px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
 
 @media (max-width: 420px) {
   .about {
     margin-top: 54px;
-    /* margin-bottom: 84px;
-    padding-left: 50px;
-    padding-right: 50px; */
+    margin-bottom: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
@@ -42,7 +43,7 @@
 
 @media (max-width: 768px) {
   .about__title {
-    padding-bottom: 28px;
+    padding-bottom: 23px;
   }
 }
 
@@ -50,14 +51,9 @@
   .about__title {
     font-size: 18px;
     letter-spacing: -0.72px;
+    padding-bottom: 28px;
   }
 }
-
-/* @media (max-width: 420px) {
-  .about__title {
-    padding-bottom: 23px;
-  }
-} */
 
 .about__text-wrapper {
   display: flex;
@@ -126,7 +122,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 142.857% */
+  line-height: 20px;
 }
 
 @media (max-width: 768px) {
@@ -179,7 +175,7 @@
 @media (max-width: 420px) {
   .about__time-element {
     font-size: 11px;
-    /* line-height: 36px; */
+    line-height: 30px;
   }
 }
 

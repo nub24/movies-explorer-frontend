@@ -1,34 +1,29 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import Sidebar from "../Sidebar/Sidebar";
 import { useState, useEffect } from "react";
+import Navigation from "../Navigation/Navigation";
 
 function Header({ loggedIn }) {
-  const location = useLocation();
   const [sidebarOpened, setSidebarOpened] = useState(false);
 
-  const [dataLayout, setData] = useState({
-    w: 0,
-  });
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    setData({
-      w: window.innerWidth,
-    });
-    window.addEventListener("resize", resize);
+    const handleResize = (e) => {
+        setWidth(document.documentElement.clientWidth)    
+    }
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
   }, []);
 
   useEffect(() => {
-    if (dataLayout.w > 768) {
+    if (width > 768) {
       setSidebarOpened(false);
     }
-  }, [dataLayout.w]);
-
-  const resize = (e) => {
-    setData({
-      w: e.target.innerWidth,
-    });
-  };
+  }, [width]);
 
   return (
     <header className="header">
@@ -36,31 +31,38 @@ function Header({ loggedIn }) {
 
       {!loggedIn && (
         <div className="header__info">
-          <a className="header__link" href="#">
+          <Link 
+            className="header__link" 
+            to="/signup">
             Регистрация
-          </a>
-          <button className="header__login-btn">Войти</button>
+          </Link>
+          <Link 
+            className="header__login-btn"
+            to={'/signin'}
+            >Войти
+          </Link>
         </div>
       )}
 
-      {dataLayout.w > 768 && loggedIn && (
+      {width > 768 && loggedIn && (
         <>
-          <nav className="header__nav">
-            <a className="header__navlink">Фильмы</a>
-            <a className="header__navlink">Сохраненные фильмы</a>
-          </nav>
-          <button className="header__account-btn">Аккаунт</button>
+          <Navigation />
+          <Link 
+            className="header__account-btn"
+            to={'/profile'}
+            >Аккаунт
+          </Link>
         </>
       )}
 
-      {dataLayout.w <= 768 && loggedIn && (
+      {width <= 768 && loggedIn && (
         <div
           className="header__burger-btn"
           onClick={() => setSidebarOpened(!sidebarOpened)}
         ></div>
       )}
 
-      {dataLayout.w <= 768 && (
+      {width <= 768 && (
         <Sidebar opened={sidebarOpened} setOpened={setSidebarOpened} />
       )}
     </header>

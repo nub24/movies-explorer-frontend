@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Sidebar.css";
 
 function Sidebar({ opened, setOpened }) {
@@ -12,17 +13,25 @@ function Sidebar({ opened, setOpened }) {
         <div>
           <ul className="sidebar__items">
             <li className="sidebar__item">
-              <a className="sidebar__link" href="#">
+              <Link 
+                className="sidebar__link"
+                to={'/'}>
                 Главная
-              </a>
+              </Link>
             </li>
             <li className="sidebar__item">
-              <a className="sidebar__link" href="#">
+              <Link 
+                className="sidebar__link"
+                to={'/movies'}>
                 Фильмы
-              </a>
+              </Link>
             </li>
             <li className="sidebar__item">
-              <a className="sidebar__link">Сохранённые фильмы</a>
+              <Link 
+                className="sidebar__link"
+                to={'/saved-movies'}>
+                Сохранённые фильмы
+              </Link>
             </li>
           </ul>
         </div>

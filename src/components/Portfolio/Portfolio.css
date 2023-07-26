@@ -1,0 +1,130 @@
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 125px;
+  padding-left: 70px;
+  padding-right: 70px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .portfolio {
+    margin-top: 8px;
+    margin-bottom: 79px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media (max-width: 420px) {
+  .portfolio {
+    margin-bottom: 70px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+.portfolio__title {
+  color: #8b8b8b;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 420px) {
+  .portfolio__title {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+}
+
+.portfolio__elements-wrapper {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.portfolio__element {
+  height: 89px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:nth-child(n + 2) {
+    border-top: 1px solid #424242;
+  }
+}
+
+@media (max-width: 550px) {
+  .portfolio__element {
+    height: 67px;
+  }
+}
+
+.portfolio__element-title {
+  color: #fff;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: -1.2px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .portfolio__element-title {
+    color: #fff;
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px; /* 178.571% */
+    letter-spacing: -1.12px;
+  }
+}
+
+@media (max-width: 550px) {
+  .portfolio__element-title {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.72px;
+  }
+}
+
+.portfolio__element-link {
+  margin-top: 7px;
+  color: #fff;
+  font-family: "Inter";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 60px;
+  letter-spacing: -1.2px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity .3s ease-in-out;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
+@media (max-width: 550px) {
+  .portfolio__element-link {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.72px;
+  }
+}
+
+@media (max-width: 320px) {
+  .portfolio__element-link {
+    margin-top: 0;
+  }
+}
