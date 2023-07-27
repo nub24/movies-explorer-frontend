@@ -6,9 +6,11 @@ import "./App.css";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { routesWithHeader, routesWithFooter } from "../../utils/constants.js";
 import Footer from "../Footer/Footer.jsx";
+import Movies from "../Movies/Movies.jsx";
+import SavedMovies from "../SavedMovies/SavedMovies.jsx";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const location = useLocation();
 
   const headerRoutes = routesWithHeader.find((item) => {
@@ -25,6 +27,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/movies" element={<Movies />}/>
+        <Route path="/saved-movies" element={<SavedMovies />}/>
       </Routes>
 
       {footerRoutes && <Footer />}
