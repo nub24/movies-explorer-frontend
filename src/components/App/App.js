@@ -32,6 +32,7 @@ function App() {
       </Routes>
 
       {footerRoutes && <Footer />}
+
     </div>
   );
 }
