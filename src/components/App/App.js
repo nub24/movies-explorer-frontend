@@ -9,6 +9,8 @@ import Footer from "../Footer/Footer.jsx";
 import Movies from "../Movies/Movies.jsx";
 import SavedMovies from "../SavedMovies/SavedMovies.jsx";
 
+import NotFound from "../NotFound/NotFound.jsx";
+
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
   const location = useLocation();
@@ -29,6 +31,9 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/movies" element={<Movies />}/>
         <Route path="/saved-movies" element={<SavedMovies />}/>
+
+        <Route path="*" element={<NotFound />}/>
+
       </Routes>
 
       {footerRoutes && <Footer />}
