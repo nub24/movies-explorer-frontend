@@ -28,7 +28,7 @@ function MoviesCard({ img, name, duration }) {
 
   return (
     <div className='movie'>
-        <img className='movie__img' alt='#' src={img}></img>
+        <img className='movie__img' alt={name} src={img}></img>
           <div className='movie__info'>
             <p className='movie__name'>{name}</p>
             <span className='movie__duration'>{formattedDuration}</span>

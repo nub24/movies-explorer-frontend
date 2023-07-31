@@ -1,6 +1,5 @@
 import React from "react";
 import "./Navtab.css";
-import { Link } from "react-router-dom";
 
 function Navtab() {
   return (

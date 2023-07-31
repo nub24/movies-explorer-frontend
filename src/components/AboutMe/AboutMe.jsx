@@ -20,7 +20,7 @@ function AboutMe() {
             target='_blank'>Github
           </Link>
         </div>
-        <img className='aboutme__photo' src={photo}/>
+        <img className='aboutme__photo' src={photo} alt='Фото профиля.'/>
       </div>
     </section>
   )
