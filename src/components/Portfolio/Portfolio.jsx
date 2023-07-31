@@ -29,7 +29,8 @@ function Portfolio() {
                 <Link
                     className='portfolio__element-link'
                     to={'https://nub24.github.io/mesto'}
-                    target='_blank'>↗
+                    target='_blank'
+                    >↗
                 </Link>
             </li>
         </ul>

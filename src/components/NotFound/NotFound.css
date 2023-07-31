@@ -34,6 +34,12 @@
   line-height: normal;
 }
 
+@media (max-width: 420px) {
+  .notFound__title {
+    font-size: 80px;
+  }
+}
+
 .notFound__text {
   margin: 0;
   color: #fff;
@@ -43,6 +49,12 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+@media (max-width: 420px) {
+  .notFound__text {
+    font-size: 12px;
+  }
 }
 
 .notFound__link {
@@ -64,6 +76,6 @@
 
 @media (max-width: 420px) {
   .notFound__link {
-    
+    font-size: 12px;
   }
 }

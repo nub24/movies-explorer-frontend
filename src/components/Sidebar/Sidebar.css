@@ -114,12 +114,14 @@
   transition: opacity 0.3s ease-in-out;
   color: #fff;
   margin: 0 auto;
-
+  text-decoration: none;
+  text-align: center;
+  
   font-family: "Inter";
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 16px;
+  line-height: 32px;
   margin-bottom: 175px;
 
   &:hover {

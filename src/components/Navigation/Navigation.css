@@ -1,6 +1,8 @@
 .nav {
   display: flex;
   gap: 16px;
+  box-sizing: border-box;
+  margin-left: 62px;
 }
 
 .nav__link {

@@ -6,6 +6,8 @@ function Sidebar({ opened, setOpened }) {
     ? (document.body.style.position = "fixed")
     : (document.body.style.position = "");
 
+    const closeSidebar = () => setOpened(!opened)
+
   return (
     <section className={opened ? "sidebar active" : "sidebar"}>
       <div className="sidebar__outer" />
@@ -15,27 +17,35 @@ function Sidebar({ opened, setOpened }) {
             <li className="sidebar__item">
               <Link 
                 className="sidebar__link"
-                to={'/'}>
+                to={'/'}
+                onClick={closeSidebar}>
                 Главная
               </Link>
             </li>
             <li className="sidebar__item">
               <Link 
                 className="sidebar__link"
-                to={'/movies'}>
+                to={'/movies'}
+                onClick={closeSidebar}>
                 Фильмы
               </Link>
             </li>
             <li className="sidebar__item">
               <Link 
                 className="sidebar__link"
-                to={'/saved-movies'}>
+                to={'/saved-movies'}
+                onClick={closeSidebar}>
                 Сохранённые фильмы
               </Link>
             </li>
           </ul>
         </div>
-        <button className="sidebar__account-btn">Аккаунт</button>
+        <Link 
+          className="sidebar__account-btn" 
+          to={'/profile'}
+          onClick={closeSidebar}>
+          Аккаунт
+        </Link>
       </div>
       <button
         className="sidebar__btn-close"
