@@ -1,0 +1,11 @@
+.savedMovies {
+  max-width: 1280px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 auto;
+  box-sizing: border-box;
+  align-items: center;
+  margin-bottom: 45px;
+}

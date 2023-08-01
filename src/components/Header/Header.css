@@ -1,0 +1,162 @@
+.header {
+  max-width: 1280px;
+  width: 100%;
+  /* height: 74px; */
+  margin: 0 auto;
+  padding: 18px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 18px 30px;
+  }
+}
+
+@media (max-width: 420px) {
+  .header {
+    padding: 18px 14px;
+  }
+}
+
+.header__logo {
+  width: 38px;
+  height: 38px;
+  background-image: url(../../images/logo.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: opacity .3s ease-in-out;
+}
+
+.header__logo:hover {
+  opacity: .8;
+}
+
+.header__info {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+@media (max-width: 420px) {
+  .header__info {
+    gap: 14px;
+  }
+}
+
+.header__link {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.header__link:hover {
+  opacity: 0.8;
+}
+
+.header__link:visited {
+  color: #fff;
+}
+
+@media (max-width: 420px) {
+  .header__link {
+    font-size: 10px;
+  }
+}
+
+.header__login-btn {
+  width: 76px;
+  height: 32px;
+  border-radius: 3px;
+  background-color: #3ddc84;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+  color: #000;
+
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 34px;
+}
+
+.header__login-btn:hover {
+  opacity: 0.8;
+}
+
+.header__login-btn:visited {
+  color: #000;
+}
+
+@media (max-width: 420px) {
+  .header__login-btn {
+    font-size: 10px;
+    width: 54px;
+    height: 26px;
+    line-height: 26px;
+  }
+}
+
+.header__account-btn {
+  width: 100px;
+  height: 32px;
+  border-radius: 20px;
+  background-color: #313131;
+  text-decoration: none;
+  display: flex;
+   justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+  color: #fff;
+
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.header__account-btn:hover {
+  opacity: .8;
+}
+
+.header__account-btn:visited {
+  color: #fff;
+}
+
+.header__burger-btn {
+  width: 44px;
+  height: 44px;
+  background-image: url(../../images/burger.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: opacity .3s ease-in-out;
+}
+
+.header__burger-btn:hover {
+  opacity: .8;
+}
+
+@media (max-width: 420px) {
+  .header__burger-btn {
+    width: 40px;
+    height: 38px;
+  }
+}

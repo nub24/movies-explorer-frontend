@@ -1,0 +1,64 @@
+.navtab {
+  margin-bottom: 25px;
+}
+
+@media (max-width: 768px) {
+  .navtab {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 420px) {
+  .navtab {
+    margin-bottom: 18px;
+  }
+}
+
+.navtab__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  /* margin: auto 0; */
+  column-gap: 10px;
+  margin: 0;
+}
+
+.navtab__list-item {
+  height: 36px;
+  width: 96px;
+  background-color: #303030;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 36px;
+  transition: opacity 0.3s ease-in-out;
+
+  color: #fff;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.navtab__list-item:hover {
+  opacity: .8;
+}
+
+@media (max-width: 420px) {
+  .navtab__list-item {
+    font-size: 10px;
+    height: 26px;
+    width: 82px;
+    line-height: 26px;
+  }
+
+}
+
+.navtab__link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navtab__link:visited {
+  color: #fff;
+}
