@@ -2,6 +2,7 @@
   background-color: #272727;
   padding-top: 103px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .techs__wrapper {
