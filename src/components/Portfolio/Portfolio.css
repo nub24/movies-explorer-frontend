@@ -6,6 +6,7 @@
   padding-left: 70px;
   padding-right: 70px;
   box-sizing: border-box;
+  max-width: 1280px;
 }
 
 @media (max-width: 768px) {
@@ -27,48 +28,65 @@
 
 .portfolio__title {
   color: #8b8b8b;
-  font-family: Inter;
+  font-family: "Inter", Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
   margin: 0;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 @media (max-width: 420px) {
   .portfolio__title {
     font-size: 14px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 }
 
-.portfolio__elements-wrapper {
+.portfolio__links {
+  display: flex;
+  flex-direction: column;
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
 .portfolio__element {
-  height: 89px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding-top: 20px; 
+  padding-bottom: 20px;
+  
+}
 
-  &:nth-child(n + 2) {
-    border-top: 1px solid #424242;
+.portfolio__element:nth-child(n+2) {
+  border-top: 1px solid #424242;
+}
+
+@media (max-width: 320px) {
+  .portfolio__element:nth-child(n+2) {
+    border-top: 1px solid #fff;
   }
 }
 
-@media (max-width: 550px) {
-  .portfolio__element {
-    height: 67px;
-  }
+
+.portfolio__link {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  cursor: pointer;
+  align-items: center;
+  line-height: normal;
+  transition: opacity .3s ease-in-out;
+}
+
+.portfolio__link:hover {
+  opacity: .8;
 }
 
 .portfolio__element-title {
   color: #fff;
-  font-family: Inter;
+  font-family: "Inter", Arial, sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -80,11 +98,11 @@
 @media (max-width: 768px) {
   .portfolio__element-title {
     color: #fff;
-    font-family: Inter;
+    font-family: "Inter", Arial, sans-serif;
     font-size: 28px;
     font-style: normal;
     font-weight: 400;
-    line-height: 50px; /* 178.571% */
+    line-height: 50px;
     letter-spacing: -1.12px;
   }
 }
@@ -97,34 +115,18 @@
   }
 }
 
-.portfolio__element-link {
-  margin-top: 7px;
-  color: #fff;
-  font-family: "Inter";
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 60px;
-  letter-spacing: -1.2px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: opacity .3s ease-in-out;
-
-  &:hover {
-    opacity: .8;
-  }
+.portfolio__element-arrow {
+  width: 20px;
+  height: 20px;
+  background-image: url(../../images/arrow.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @media (max-width: 550px) {
-  .portfolio__element-link {
-    font-size: 18px;
-    line-height: 28px;
-    letter-spacing: -0.72px;
-  }
-}
-
-@media (max-width: 320px) {
-  .portfolio__element-link {
-    margin-top: 0;
+  .portfolio__element-arrow {
+    width: 16px;
+    height: 16px;
   }
 }

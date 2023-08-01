@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Form.css'
+import { Link } from 'react-router-dom'
 
 const formSubmitError = 'Произошла ошибка.'
 
@@ -10,7 +11,7 @@ function Form({ name, title, children, btnText }) {
 
   return (
     <form className={`form form-${name}`}>
-      <h2 className={`form__header ${profile && 'form__header_profile'}`}>{title}</h2>
+      <h1 className={`form__header ${profile && 'form__header_profile'}`}>{title}</h1>
 
       {children}
 
@@ -29,14 +30,18 @@ function Form({ name, title, children, btnText }) {
       </div>
       }
 
-      {!editMode ? <div className={`form__btn-wrapper ${profile && 'form__btn-wrapper_profile'}`}>
+      {profile && (!editMode ? <div className={`form__btn-wrapper ${profile && 'form__btn-wrapper_profile'}`}>
           <button
-            type='text' 
+            type='button' 
             className='profile__btn-edit'
             onClick={() => setEditMode(true)}
             >Редактировать
           </button>
-          <button className='profile__btn-exit'>Выйти из аккаунта</button>
+          <Link 
+            className='profile__btn-exit'
+            to={'/'}>
+            Выйти из аккаунта
+          </Link>
         </div> : 
         <div className='profile__btn-save-wrapper'>
             <span className='form__errortext form__errortext_visible'>
@@ -49,7 +54,7 @@ function Form({ name, title, children, btnText }) {
               >Сохранить
             </button>
         </div>
-      }
+      )}
     </form>
   )
 }

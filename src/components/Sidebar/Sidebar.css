@@ -74,7 +74,7 @@
 
 .sidebar__link {
   color: #fff;
-  font-family: Inter;
+  font-family: "Inter", Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -83,18 +83,18 @@
   transition: opacity 0.3s ease-in-out;
   cursor: pointer;
   position: relative;
+}
 
-  &:hover {
-    opacity: 0.8;
-  }
+.sidebar__link:hover {
+  opacity: 0.8;
+}
 
-  &:hover::before {
-    position: absolute;
-    content: "";
-    width: 96%;
-    border: 1px solid #fff;
-    bottom: -5px;
-  }
+.sidebar__link:hover::before {
+  position: absolute;
+  content: "";
+  width: 96%;
+  border: 1px solid #fff;
+  bottom: -5px;
 }
 
 @media (max-width: 420px) {
@@ -116,16 +116,21 @@
   margin: 0 auto;
   text-decoration: none;
   text-align: center;
-  
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 32px;
   margin-bottom: 175px;
+}
 
-  &:hover {
-    opacity: 0.8;
+.sidebar__account-btn:hover {
+  opacity: .8;
+}
+
+@media (max-width: 320px) {
+  .sidebar__account-btn {
+    margin-bottom: 163px;
   }
 }
 
@@ -143,6 +148,11 @@
   position: absolute;
   top: 23px;
   right: 23px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar__btn-close:hover {
+  opacity: 0.8;
 }
 
 @media (max-width: 420px) {

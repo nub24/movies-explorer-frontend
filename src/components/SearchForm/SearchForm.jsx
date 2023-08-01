@@ -12,6 +12,9 @@ function SearchForm() {
                 <input
                     className='searchForm__input'
                     type='search'
+                    required
+                    minLength={2}
+                    maxLength={30}
                     placeholder='Фильм'/>
                 <button 
                     type='submit'

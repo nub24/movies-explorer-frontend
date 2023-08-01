@@ -30,19 +30,21 @@ function App() {
     <div className="app">
       { headerRoutes && <Header loggedIn={loggedIn} />}
 
-      <Routes>
-        
-        <Route path="/movies" element={<Movies />}/>
-        <Route path="/saved-movies" element={<SavedMovies />}/>
-        <Route path="/profile" element={<Profile />} />
-        
-        <Route path="/" element={<Main />} />
-        <Route path="/signup" element={<Register/>}/>
-        <Route path="/signin" element={<Login />} />
+      
+      <main className="app__layout">
+        <Routes>        
+          <Route path="/movies" element={<Movies />}/>
+          <Route path="/saved-movies" element={<SavedMovies />}/>
+          <Route path="/profile" element={<Profile />} />
+          
+          <Route path="/" element={<Main />} />
+          <Route path="/signup" element={<Register/>}/>
+          <Route path="/signin" element={<Login />} />
 
-        <Route path="*" element={<NotFound />}/>
-
-      </Routes>
+          <Route path="*" element={<NotFound />}/>
+        </Routes>
+      </main>
+      
 
       {footerRoutes && <Footer />}
 

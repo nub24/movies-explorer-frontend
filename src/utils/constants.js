@@ -27,41 +27,41 @@ export const moviesArr = [
     name: 'Бег это свобода',
     duration: 130,
   },
-  {
-    img: 'https://beatfilmfestival.ru/media/pages/movies/33/702326800-1606827747/33-1-1200x630.jpg',
-    name: 'Книготорговцы',
-    duration: 180,
-  },
-  {
-    img: 'https://beatfilmfestival.ru/media/pages/movies/33/702326800-1606827747/33-1-1200x630.jpg',
-    name: 'Когда я думаю о Германии ночью',
-    duration: 80,
-  },
-  {
-    img: 'https://beatfilmfestival.ru/media/pages/movies/33/702326800-1606827747/33-1-1200x630.jpg',
-    name: 'Gimme Danger: История Игги и The Stooges',
-    duration: 99,
-  },
-  {
-    img: 'https://beatfilmfestival.ru/media/pages/movies/33/702326800-1606827747/33-1-1200x630.jpg',
-    name: 'Дженис: Маленькая девочка грустит',
-    duration: 55,
-  },
-  {
-    img: 'https://beatfilmfestival.ru/media/pages/movies/33/702326800-1606827747/33-1-1200x630.jpg',
-    name: 'Соберись перед прыжком',
-    duration: 66,
-  },
-  {
-    img: 'https://beatfilmfestival.ru/media/pages/movies/33/702326800-1606827747/33-1-1200x630.jpg',
-    name: 'Пи Джей Харви: A dog called money',
-    duration: 77,
-  },
-  {
-    img: 'https://beatfilmfestival.ru/media/pages/movies/33/702326800-1606827747/33-1-1200x630.jpg',
-    name: 'По волнам: Искусство зыука в кино',
-    duration: 88,
-  },
+  // {
+  //   img: 'https://beatfilmfestival.ru/media/pages/movies/33/702326800-1606827747/33-1-1200x630.jpg',
+  //   name: 'Книготорговцы',
+  //   duration: 180,
+  // },
+  // {
+  //   img: 'https://beatfilmfestival.ru/media/pages/movies/33/702326800-1606827747/33-1-1200x630.jpg',
+  //   name: 'Когда я думаю о Германии ночью',
+  //   duration: 80,
+  // },
+  // {
+  //   img: 'https://beatfilmfestival.ru/media/pages/movies/33/702326800-1606827747/33-1-1200x630.jpg',
+  //   name: 'Gimme Danger: История Игги и The Stooges',
+  //   duration: 99,
+  // },
+  // {
+  //   img: 'https://beatfilmfestival.ru/media/pages/movies/33/702326800-1606827747/33-1-1200x630.jpg',
+  //   name: 'Дженис: Маленькая девочка грустит',
+  //   duration: 55,
+  // },
+  // {
+  //   img: 'https://beatfilmfestival.ru/media/pages/movies/33/702326800-1606827747/33-1-1200x630.jpg',
+  //   name: 'Соберись перед прыжком',
+  //   duration: 66,
+  // },
+  // {
+  //   img: 'https://beatfilmfestival.ru/media/pages/movies/33/702326800-1606827747/33-1-1200x630.jpg',
+  //   name: 'Пи Джей Харви: A dog called money',
+  //   duration: 77,
+  // },
+  // {
+  //   img: 'https://beatfilmfestival.ru/media/pages/movies/33/702326800-1606827747/33-1-1200x630.jpg',
+  //   name: 'По волнам: Искусство зыука в кино',
+  //   duration: 88,
+  // },
 ]
 
 export const savedMoviesArr = [

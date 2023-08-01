@@ -6,19 +6,28 @@ function MoviesCardList({ moviesArr }) {
   
   return (
     <section className='moviesCardList'>
-        <div className='moviesCardListWrapper'>
-            {moviesArr.map((movie) => {
+        <ul className='moviesCardListWrapper'>
+            {moviesArr.map((movie, i) => {
               return (
-                <MoviesCard
-                img={movie.img}
-                name={movie.name}
-                duration={movie.duration}
-               />
+                <li 
+                  className='moviesCardList__item'
+                  key={i}
+                  >
+                  <MoviesCard
+                    img={movie.img}
+                    name={movie.name}
+                    duration={movie.duration}
+                  />
+                </li>
                )
             })}
-        </div>
+        </ul>
 
-        <button className='moviesCardList__more-btn'>Ещё</button>
+        <button
+          className='moviesCardList__more-btn'
+          type='button'
+          >Ещё
+        </button>
         
     </section>
   )

@@ -10,13 +10,16 @@ const currentYear = new Date().getFullYear();
         <p className='footer__detail'>Учебный проект Яндекс.Практикум х BeatFilm.</p>
         <div className='footer__container'>
             <p className='footer__date'>{`© ${currentYear}`}</p>
-            <div className='footer__links-wrapper'>
+            <ul className='footer__links-wrapper'>
+              <li className='footer__links-item'>
                 <Link 
                   className='footer__link' 
                   to={'https://practicum.yandex.ru'}
                   target='_blank'>
                   Яндекс.Практикум
                 </Link>
+              </li>
+              <li className='footer__links-item'>
                 <Link 
                   className='footer__link'
                   to={'https://github.com/'}
@@ -24,7 +27,8 @@ const currentYear = new Date().getFullYear();
                   >
                   Github
                 </Link>
-            </div>
+              </li>
+            </ul>
         </div>
     </footer>
   )

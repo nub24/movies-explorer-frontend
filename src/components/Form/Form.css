@@ -11,7 +11,7 @@
   margin: 0;
   margin-top: 40px;
   color: #fff;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -64,7 +64,7 @@
   flex-direction: column;
 
   color: #8b8b8b;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
@@ -72,13 +72,13 @@
   gap: 1px;
 }
 
-.form__label_profile {
+.form__label-profile {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   align-items: center;
   color: #fff;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-size: 11px;
   font-style: normal;
   font-weight: 500;
@@ -102,11 +102,15 @@
   border-radius: 8px;
   background: #2f2f2f;
   color: #fff;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.form__input:focus {
+  outline: 1px solid #4285f4;
 }
 
 .form__input_profile {
@@ -116,7 +120,7 @@
   outline: none;
   color: #fff;
   text-align: right;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-size: 11px;
   font-style: normal;
   font-weight: 400;
@@ -124,6 +128,10 @@
   margin: 0;
   padding: 0;
   height: auto;
+}
+
+.form__input_profile:focus {
+  outline: 1px solid #4285f4;
 }
 
 .form__input_error {
@@ -134,7 +142,7 @@
   color: #ee3465;
   grid-column: 1 / span 2;
   box-sizing: border-box;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-size: 8px;
   font-style: normal;
   font-weight: 500;
@@ -208,7 +216,7 @@
 .form__errortext {
   opacity: 1;
   color: #ee3465;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-size: 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -236,15 +244,15 @@
   transition: opacity 0.3s ease-in-out;
 
   text-align: center;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+}
 
-  &:hover {
-    opacity: 0.8;
-  }
+.form__btn-submit:hover {
+  opacity: .8;
 }
 
 @media (max-width: 460px) {
@@ -257,7 +265,7 @@
   border: none;
   color: #fff;
   text-align: center;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -265,10 +273,10 @@
   background-color: transparent;
   cursor: pointer;
   transition: opacity .3s ease-in-out;
+}
 
-  &:hover {
-    opacity: .8;
-  }
+.profile__btn-edit:hover {
+  opacity: .8;
 }
 
 @media (max-width: 320px) {
@@ -307,16 +315,16 @@
   height: 45px;
   cursor: pointer;
   transition: opacity .3s ease-in-out;
+}
 
-  &:hover {
-    opacity: .8;
-  }
+.profile__btn-save:hover {
+  opacity: .8;
 }
 
 .profile__btn-exit {
   color: #ee3465;
   text-align: center;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 500;
@@ -325,10 +333,11 @@
   border: none;
   cursor: pointer;
   transition: .3s opacity ease-in-out;
+  text-decoration: none;
+}
 
-  &:hover {
-    opacity: .8s;
-  }
+.profile__btn-exit:hover {
+  opacity: .8;
 }
 
 @media (max-width: 320px) {

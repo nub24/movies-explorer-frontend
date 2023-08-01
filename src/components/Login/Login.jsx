@@ -5,7 +5,7 @@ import Form from '../Form/Form'
 
 function Login() {
   return (
-    <div className='login'>
+    <section className='login'>
       <Link to={'/'}>
         <div className="login__logo"></div>
       </Link>
@@ -26,6 +26,7 @@ function Login() {
               autoComplete='off'
               type='email'
               name='email'
+              placeholder='E-mail'
              />
              <span className='form__validation-error form__validation-error_visible email-error'>
                 Тут будет ошибка емэйла, которая не влезает в контейнер, точнее влезает, но мы сделаем так, чтобы не влезла ну давайте по приколу третью строку сделаем чтобы лайн-кламп проверить почему нет-то
@@ -38,9 +39,10 @@ function Login() {
               className='form__input form__input_error'
               required
               type='password'
-              minLength={2}
-              maxLength={30}
+              minLength={4}
+              maxLength={16}
               name='password'
+              placeholder='Пароль'
              />
              <span className='form__validation-error form__validation-error_visible password-error'>
                 Тут будет ошибка пароля
@@ -57,7 +59,7 @@ function Login() {
             > Регистрация
           </Link>
       </span>
-    </div>
+    </section>
   )
 }
 

@@ -8,8 +8,6 @@ function MoviesCard({ img, name, duration }) {
   const [savedFilm, setSavedFilm] = useState(false);
   const handleSavedFilm = () => setSavedFilm(!savedFilm);
 
-  console.log(savedFilm);
-
   const location =useLocation();
 
   useEffect(() => {
@@ -30,13 +28,14 @@ function MoviesCard({ img, name, duration }) {
     <div className='movie'>
         <img className='movie__img' alt={name} src={img}></img>
           <div className='movie__info'>
-            <p className='movie__name'>{name}</p>
+            <h2 className='movie__name'>{name}</h2>
             <span className='movie__duration'>{formattedDuration}</span>
           </div>
         
 
         <button 
-          className={classMovieButton} 
+          className={classMovieButton}
+          type='button'
           onClick={handleSavedFilm}
           >{!savedFilm && 'Сохранить'}
         </button>

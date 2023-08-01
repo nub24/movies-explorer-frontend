@@ -11,7 +11,7 @@ function Sidebar({ opened, setOpened }) {
   return (
     <section className={opened ? "sidebar active" : "sidebar"}>
       <div className="sidebar__outer" />
-      <div className="sidebar__content">
+      <nav className="sidebar__content">
         <div>
           <ul className="sidebar__items">
             <li className="sidebar__item">
@@ -46,8 +46,9 @@ function Sidebar({ opened, setOpened }) {
           onClick={closeSidebar}>
           Аккаунт
         </Link>
-      </div>
+      </nav>
       <button
+        type="button"
         className="sidebar__btn-close"
         onClick={() => setOpened(!opened)}
       />

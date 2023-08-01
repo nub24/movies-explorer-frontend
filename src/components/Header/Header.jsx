@@ -11,7 +11,7 @@ function Header({ loggedIn }) {
 
   useEffect(() => {
     const handleResize = (e) => {
-        setWidth(document.documentElement.clientWidth)    
+        setWidth(window.innerWidth)    
     }
     window.addEventListener("resize", handleResize);
     return () => {

@@ -5,33 +5,34 @@ import './Portfolio.css'
 function Portfolio() {
   return (
     <section className='portfolio'>
-        <p className='portfolio__title'>Портфолио</p>
-        <ul className='portfolio__elements-wrapper'>
+        <h2 className='portfolio__title'>Портфолио</h2>
+        <ul className='portfolio__links'>
             <li className='portfolio__element'>
-                <p className='portfolio__element-title'>Статичный сайт</p>
-                <Link 
-                    className='portfolio__element-link'
+                <Link
+                    className='portfolio__link'
                     to={'https://nub24.github.io/how-to-learn'}
-                    target='_blank'
-                    >↗
-                </Link>
+                    target='_blank'>
+                    <p className='portfolio__element-title'>Статичный сайт</p>
+                    <div className='portfolio__element-arrow'></div>
+                </Link>                
             </li>
             <li className='portfolio__element'>
-                <p className='portfolio__element-title'>Адаптивный сайт</p>
                 <Link
-                    className='portfolio__element-link'
+                    className='portfolio__link'
                     to={'https://nub24.github.io/russian-travel'}
-                    target='_blank'>↗
-                </Link>
+                    target='_blank'>
+                    <p className='portfolio__element-title'>Адаптивный сайт</p>
+                    <div className='portfolio__element-arrow'></div>
+                </Link>  
             </li>
             <li className='portfolio__element'>
-                <p className='portfolio__element-title'>Одностраничное приложение</p>
                 <Link
-                    className='portfolio__element-link'
+                    className='portfolio__link'
                     to={'https://nub24.github.io/mesto'}
-                    target='_blank'
-                    >↗
-                </Link>
+                    target='_blank'>
+                    <p className='portfolio__element-title'>Одностраничное приложение</p>
+                    <div className='portfolio__element-arrow'></div>
+                </Link>  
             </li>
         </ul>
     </section>

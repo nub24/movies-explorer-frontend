@@ -8,6 +8,12 @@
   }
 }
 
+@media (max-width: 420px) {
+  .navtab {
+    margin-bottom: 18px;
+  }
+}
+
 .navtab__list {
   list-style: none;
   padding: 0;
@@ -28,14 +34,14 @@
   transition: opacity 0.3s ease-in-out;
 
   color: #fff;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
+}
 
-  &:hover {
-    opacity: 0.8;
-  }
+.navtab__list-item:hover {
+  opacity: .8;
 }
 
 @media (max-width: 420px) {
@@ -51,8 +57,8 @@
 .navtab__link {
   text-decoration: none;
   color: #fff;
+}
 
-  &:visited {
-    color: #fff;
-  }
+.navtab__link:visited {
+  color: #fff;
 }

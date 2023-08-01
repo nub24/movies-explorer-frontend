@@ -6,7 +6,7 @@ import Form from '../Form/Form'
 function Register() {
 
   return (
-    <div className='register'>
+    <section className='register'>
       <Link to={'/'}>
         <div className="register__logo"></div>
       </Link>
@@ -26,6 +26,7 @@ function Register() {
               type='text'
               minLength={2}
               maxLength={30}
+              placeholder='Имя'
               name='name'
              />
              <span className='form__validation-error form__validation-error_visible name-error'>
@@ -41,6 +42,7 @@ function Register() {
               autoComplete='off'
               type='email'
               name='email'
+              placeholder='E-mail'
              />
              <span className='form__validation-error form__validation-error_visible email-error'>
                 Тут будет ошибка емэйла, которая не влезает в контейнер, точнее влезает, но мы сделаем так, чтобы не влезла ну давайте по приколу третью строку сделаем чтобы лайн-кламп проверить почему нет-то
@@ -53,9 +55,10 @@ function Register() {
               className='form__input form__input_error'
               required
               type='password'
-              minLength={2}
-              maxLength={30}
+              minLength={4}
+              maxLength={8}
               name='password'
+              placeholder='Пароль'
              />
              <span className='form__validation-error form__validation-error_visible password-error'>
                 Тут будет ошибка пароля
@@ -72,7 +75,7 @@ function Register() {
             > Войти
           </Link>
       </span>
-    </div>
+    </section>
   )
 }
 

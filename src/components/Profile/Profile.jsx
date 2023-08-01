@@ -2,31 +2,28 @@ import React from 'react'
 import './Profile.css';
 import Form from '../Form/Form';
 
-const profileData = {
-  name: "Виталий",
-  email: "pochta@yandex.ru"
-}
-
-
 function Profile() {
+
+  
+
   return (
-    <div className='profile'>
+    <section className='profile'>
         <Form
           name='profile'
-          title={`Привет, ${profileData.name}!`}
+          title={`Привет, Виталий!`}
           btnText = 'Сохранить'
         >
         <fieldset className='form__fieldset form__fieldset_profile'>
-            <label className='form__label_profile'>
+            <label className='form__label-profile'>
               Имя
               <input 
               className='form__input form__input_profile' 
-              value={profileData.name}
               required
               type='text'
               minLength={2}
               maxLength={30}
-              disabled
+              placeholder='Имя'
+              autoComplete='off'
               name='name'
               />
               <span className='
@@ -40,13 +37,15 @@ function Profile() {
 
             <div className='form__divider'></div>
 
-            <label className='form__label_profile'>
+            <label className='form__label-profile'>
               E-mail
               <input
               className='form__input form__input_profile'
-              value={profileData.email}
               name='email'
               type='email'
+              placeholder='E-mail'
+              autoComplete='off'
+              disabled
               required
               />
               <span className='
@@ -60,7 +59,7 @@ function Profile() {
         </fieldset>
             
         </Form>
-     </div>
+     </section>
   )
 }
 
