@@ -1,16 +1,28 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Form.css'
 import { Link } from 'react-router-dom'
 
-const formSubmitError = 'Произошла ошибка.'
-
-function Form({ name, title, children, btnText }) {
+function Form({ 
+  name,
+  title,
+  children,
+  btnText,
+  isValid,
+  handleSubmit,
+  errorText,
+  editMode,
+  setEditMode,
+  onSignOut
+ }) {
   const login = name === 'login'
   const profile = name === 'profile'
-  const [editMode, setEditMode] = useState(false);
+  
+  const errorTextClassName = (
+    `form__errortext ${errorText && 'form__errortext_visible'}`
+  )
 
   return (
-    <form className={`form form-${name}`}>
+    <form className={`form form-${name}`} onSubmit={handleSubmit} noValidate>
       <h1 className={`form__header ${profile && 'form__header_profile'}`}>{title}</h1>
 
       {children}
@@ -19,12 +31,13 @@ function Form({ name, title, children, btnText }) {
       (name === 'login' || name === 'register') &&
 
       <div className={`form__btn-wrapper ${login && 'form__btn-wrapper_login'}`}>
-        <span className='form__errortext form__errortext_visible'>
-          {formSubmitError}
+        <span className={errorTextClassName}>
+          {errorText}
         </span>
         <button
           className='form__btn-submit'
           type='submit'
+          disabled={!isValid}
           >{btnText}
         </button>
       </div>
@@ -37,20 +50,20 @@ function Form({ name, title, children, btnText }) {
             onClick={() => setEditMode(true)}
             >Редактировать
           </button>
-          <Link 
+          <button 
             className='profile__btn-exit'
-            to={'/'}>
+            onClick={onSignOut}>
             Выйти из аккаунта
-          </Link>
+          </button>
         </div> : 
         <div className='profile__btn-save-wrapper'>
             <span className='form__errortext form__errortext_visible'>
-              При обновлении профиля произошла ошибка.
+              {errorText}
             </span>
             <button
               className='form__btn-submit'
               type='submit'
-              onClick={() => setEditMode(false)}
+              disabled={!isValid}
               >Сохранить
             </button>
         </div>
