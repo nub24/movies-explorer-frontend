@@ -15,6 +15,7 @@ import Register from "../Register/Register.jsx";
 import Login from '../Login/Login.jsx'
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.js";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext.js'
+import useResize from "../../hooks/useResize";
 
 import {
   register,
@@ -32,6 +33,8 @@ function App() {
   const location = useLocation();
   const [currentUser, setCurrentUser] = useState({})
   const [savedMovies, setSavedMovies] = useState([])
+
+  const [isLoading, setIsLoading] = useState(false)
   
   const headerRoutes = routesWithHeader.find((item) => {
     return item === location.pathname
@@ -42,20 +45,8 @@ function App() {
   })
 
   const navigate = useNavigate();
+  const width = useResize()
 
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = (e) => {
-        setWidth(window.innerWidth)    
-    }
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, []);
-
-  
   function handleRegistration(email, password, name) {
     register(email, password, name)
       .then(() => {
@@ -97,6 +88,7 @@ function App() {
   }
 
   function handleUpdateProfile ({ email, name }) {
+    setIsLoading(true)
     updateProfile({ email, name })
     .then((newData) => {
       setCurrentUser(newData)
@@ -112,6 +104,9 @@ function App() {
       setTimeout(() => {
           setFormError('')
       }, 10000)
+    })
+    .finally(() => {
+      setIsLoading(false)
     })
   }
 
@@ -206,6 +201,7 @@ function App() {
                 formError={formError}
                 loggedIn={loggedIn}
                 onSignOut={onSignOut}
+                isLoading={isLoading}
               />
             }/>
           
@@ -221,12 +217,12 @@ function App() {
             />
           
             <Route
-              path="/signin"
-              element={
-                <Login
-                  onAuthorization={handleAuthorization}
-                  formError={formError} 
-                />}
+                path="/signin"
+                element={
+                  <Login
+                    onAuthorization={handleAuthorization}
+                    formError={formError} 
+                  />}
             />
 
             <Route path="*" element={<NotFound />}/>

@@ -3,21 +3,11 @@ import "./Header.css";
 import Sidebar from "../Sidebar/Sidebar";
 import { useState, useEffect } from "react";
 import Navigation from "../Navigation/Navigation";
+import useResize from "../../hooks/useResize";
 
 function Header({ loggedIn }) {
   const [sidebarOpened, setSidebarOpened] = useState(false);
-
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = (e) => {
-        setWidth(window.innerWidth)    
-    }
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, []);
+  const width = useResize()
 
   useEffect(() => {
     if (width > 768) {

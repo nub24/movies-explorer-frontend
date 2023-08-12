@@ -10,7 +10,7 @@ function MoviesCardList({ moviesArr, savedMovies, onSaveHandler, onDeleteHandler
               return (
                 <li 
                   className='moviesCardList__item'
-                  key={i}
+                  key={movie.id || movie._id}
                   >
                   <MoviesCard
                     movie={movie}

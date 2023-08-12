@@ -7,6 +7,18 @@ import { movieFilter } from '../../utils/movieFilter.js'
 import Preloader from '../Preloader/Preloader.js'
 import { createMovie, deleteMovie } from '../../utils/MainApi.js'
 
+import {
+  MAX_DURATION,
+  DESKTOP_WIDTH,
+  MOBILE_WIDTH,
+  DESKTOP_CARDS_COUNT,
+  DESKTOP_CARDS_PACK,
+  LAPTOP_CARDS_COUNT,
+  LAPTOP_CARDS_PACK,
+  MOBILE_CARDS_COUNT,
+  MOBILE_CARDS_PACK
+} from '../../utils/constants.js'
+
 function Movies({ width, savedMovies, setSavedMovies }) {
   const [movies, setMovies] = useState([])
   
@@ -26,15 +38,15 @@ function Movies({ width, savedMovies, setSavedMovies }) {
   let allMovies = localStorage.getItem('allMoviesData');
 
   useEffect(() => {
-    if (width > 1140) {
-      setCardsAmount(12);
-      setAddCardsPack(3)
-    } else if (width <= 1140 && width >= 708) {
-        setCardsAmount(8);
-        setAddCardsPack(2)
+    if (width > DESKTOP_WIDTH) {
+      setCardsAmount(DESKTOP_CARDS_COUNT);
+      setAddCardsPack(DESKTOP_CARDS_PACK)
+    } else if (width <= DESKTOP_WIDTH && width >= MOBILE_WIDTH) {
+        setCardsAmount(LAPTOP_CARDS_COUNT);
+        setAddCardsPack(LAPTOP_CARDS_PACK)
     } else {
-      setCardsAmount(5);
-      setAddCardsPack(2)
+      setCardsAmount(MOBILE_CARDS_COUNT);
+      setAddCardsPack(MOBILE_CARDS_PACK)
     }
 }, [width])
 
@@ -42,13 +54,25 @@ const removeMoviesData = () => {
   localStorage.removeItem('allMoviesData')
 }
 
+// сохраняем данные чекбокса в локалсторадж
+useEffect(() => {
+  if(queryData) {
+    const newQueryData = JSON.parse(queryData);
+    newQueryData.checkbox = checkbox
+    localStorage.setItem('queryData', JSON.stringify(newQueryData))
+  }
+}, [checkbox, queryData])
 
+
+//получаем данные о строке и состоянии чекбокса
 useEffect(() => {
   if(queryData) {
     setPrevSearchQuery(JSON.parse(queryData).searchQuery)
     setCheckbox(JSON.parse(queryData).checkbox)
   }
-}, [])
+}, [] )
+
+
 
 useEffect(() => {
   window.addEventListener('beforeunload', removeMoviesData);
@@ -60,14 +84,13 @@ useEffect(() => {
   const submitHandler = async (checkbox, searchQuery ) => {
     try {
       setIsLoading(true)
-      
       if(!allMovies) {
         const allMoviesData = await getMovies()
         localStorage.setItem('allMoviesData', JSON.stringify(allMoviesData))
         allMovies = localStorage.getItem('allMoviesData')
       }
       filteredMovies = movieFilter(searchQuery, JSON.parse(allMovies))
-      filteredShortMovies = filteredMovies.filter(movie => movie.duration <= 40)
+      filteredShortMovies = filteredMovies.filter(movie => movie.duration <= MAX_DURATION)
       
       const queryData = {
         filteredMovies,

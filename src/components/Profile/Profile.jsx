@@ -8,7 +8,8 @@ import{ useFormAndValidation } from '../../hooks/useFormAndValidation'
 function Profile({
   onUpdateProfile,
   formError,
-  onSignOut
+  onSignOut,
+  isLoading
 }) {
   const currentUser = useContext(CurrentUserContext);
   const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation();
@@ -26,7 +27,6 @@ function Profile({
 
   function handleSubmit(e) {
     e.preventDefault();
-    
     onUpdateProfile({
       email: values.email.trim(),
       name: values.name.trim()
@@ -45,6 +45,7 @@ function Profile({
           handleSubmit={handleSubmit}
           errorText={formError}
           onSignOut={onSignOut}
+          isLoading={isLoading}
         >
         <fieldset className='form__fieldset form__fieldset_profile'>
             <label className='form__label-profile'>

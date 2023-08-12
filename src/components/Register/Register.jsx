@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Register.css'
 import { Link } from 'react-router-dom'
 import Form from '../Form/Form';
@@ -6,12 +6,23 @@ import{ useFormAndValidation } from '../../hooks/useFormAndValidation'
 
 function Register({ onRegistration, formError }) {
   const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation();
+  const [isDisabled, setIsDisabled] = useState(false)
 
   function handleSubmit(e) {
     e.preventDefault();
     onRegistration(values.email.trim(), values.password.trim(), values.name.trim());
     resetForm();
   }
+
+  useEffect(() => {
+    if(!values.name || !values.email || !values.password) {
+      setIsDisabled(true)
+    } else {
+      setIsDisabled(false)
+    }
+  }, [values.name, values.email, values.password])
+
+
 
   return (
     <section className='register'>
@@ -26,6 +37,7 @@ function Register({ onRegistration, formError }) {
         isValid={isValid}
         handleSubmit={handleSubmit}
         errorText={formError}
+        isDisabled={{isDisabled}}
         >
         <fieldset className='form__fieldset'>
           <label className='form__label'>

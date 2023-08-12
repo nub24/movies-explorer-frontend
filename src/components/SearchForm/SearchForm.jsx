@@ -8,7 +8,7 @@ const { values, setValues, handleChange, errors, isValid, resetForm } = useFormA
 function handleSubmit(e) {
     e.preventDefault();
     submitHandler(checkbox, values.search)
-    resetForm()
+
 }
 
 useEffect(() => {
@@ -33,7 +33,6 @@ const clickCheckbox = () => setCheckbox(!checkbox)
                     type='search'
                     name='search'
                     required
-                    minLength={2}
                     maxLength={30}
                     placeholder='Фильм'
                     onChange={handleChange}
@@ -50,6 +49,7 @@ const clickCheckbox = () => setCheckbox(!checkbox)
                 <label className='searchForm__checkbox-label'>
                     <input
                         type='checkbox'
+                        checked={checkbox}
                         className='searchForm__invisible-checkbox'
                         onChange={clickCheckbox}
                         />

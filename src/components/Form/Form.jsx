@@ -1,6 +1,5 @@
 import React from 'react'
 import './Form.css'
-import { Link } from 'react-router-dom'
 
 function Form({ 
   name,
@@ -8,11 +7,13 @@ function Form({
   children,
   btnText,
   isValid,
+  isDisabled,
   handleSubmit,
   errorText,
   editMode,
   setEditMode,
-  onSignOut
+  onSignOut,
+  isLoading
  }) {
   const login = name === 'login'
   const profile = name === 'profile'
@@ -37,7 +38,7 @@ function Form({
         <button
           className='form__btn-submit'
           type='submit'
-          disabled={!isValid}
+          disabled={!isValid || isDisabled}
           >{btnText}
         </button>
       </div>
@@ -63,7 +64,7 @@ function Form({
             <button
               className='form__btn-submit'
               type='submit'
-              disabled={!isValid}
+              disabled={!isValid || isLoading}
               >Сохранить
             </button>
         </div>
