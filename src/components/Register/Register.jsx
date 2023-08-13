@@ -37,7 +37,7 @@ function Register({ onRegistration, formError }) {
         isValid={isValid}
         handleSubmit={handleSubmit}
         errorText={formError}
-        isDisabled={{isDisabled}}
+        isDisabled={isDisabled}
         >
         <fieldset className='form__fieldset'>
           <label className='form__label'>
