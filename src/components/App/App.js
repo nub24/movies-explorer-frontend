@@ -33,7 +33,7 @@ function App() {
   const location = useLocation();
   const [currentUser, setCurrentUser] = useState({})
   const [savedMovies, setSavedMovies] = useState([])
-
+    
   const [isLoading, setIsLoading] = useState(false)
   
   const headerRoutes = routesWithHeader.find((item) => {
@@ -140,16 +140,18 @@ function App() {
       .then((res) => {
         if (res) {
           setLoggedIn(true)
-          if(location.pathname === '/signup' || location.pathname === 'signin') {
-            navigate('/movies')
-          } else {
-            navigate(location.pathname)
-          }
         }
-
       })
     }
   }, [loggedIn])
+
+  useEffect(() => {
+    if(loggedIn) {
+      if(location.pathname === '/signup' || location.pathname === '/signin') {
+        navigate('/movies')
+      } 
+    }
+  }, [loggedIn, location.pathname])
 
   useEffect(() => {
     if(loggedIn) {
@@ -171,7 +173,7 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
 
       <div className="app">
-        { headerRoutes && <Header loggedIn={loggedIn} />}
+        { headerRoutes && <Header loggedIn={loggedIn} width={width} />}
      
         <main className="app__layout">
           <Routes>
@@ -222,7 +224,7 @@ function App() {
                   <Login
                     onAuthorization={handleAuthorization}
                     formError={formError} 
-                  />}
+                />}
             />
 
             <Route path="*" element={<NotFound />}/>

@@ -64,7 +64,7 @@ function Form({
             <button
               className='form__btn-submit'
               type='submit'
-              disabled={!isValid || isLoading}
+              disabled={!isValid || isLoading || isDisabled}
               >Сохранить
             </button>
         </div>

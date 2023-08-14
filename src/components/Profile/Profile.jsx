@@ -14,6 +14,7 @@ function Profile({
   const currentUser = useContext(CurrentUserContext);
   const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation();
   const [editMode, setEditMode] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(false)
 
   useEffect(() => {
     if (currentUser) {
@@ -24,6 +25,14 @@ function Profile({
   useEffect(() => {
     formError ? setEditMode(true) : setEditMode(false)
   }, [formError])
+
+  useEffect(() => {
+    if (currentUser.name === values.name && currentUser.email === values.email) {
+      setIsDisabled(true)
+    } else {
+      setIsDisabled(false)
+    }
+  }, [values.name, values.email])
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -46,6 +55,7 @@ function Profile({
           errorText={formError}
           onSignOut={onSignOut}
           isLoading={isLoading}
+          isDisabled={isDisabled}
         >
         <fieldset className='form__fieldset form__fieldset_profile'>
             <label className='form__label-profile'>

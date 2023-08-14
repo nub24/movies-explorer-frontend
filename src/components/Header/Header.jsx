@@ -3,12 +3,10 @@ import "./Header.css";
 import Sidebar from "../Sidebar/Sidebar";
 import { useState, useEffect } from "react";
 import Navigation from "../Navigation/Navigation";
-import useResize from "../../hooks/useResize";
 
-function Header({ loggedIn }) {
+function Header({ loggedIn, width }) {
   const [sidebarOpened, setSidebarOpened] = useState(false);
-  const width = useResize()
-
+  
   useEffect(() => {
     if (width > 768) {
       setSidebarOpened(false);

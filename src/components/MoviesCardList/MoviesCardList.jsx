@@ -6,7 +6,7 @@ function MoviesCardList({ moviesArr, savedMovies, onSaveHandler, onDeleteHandler
   return (
     <section className='moviesCardList '>
         <ul className='moviesCardListWrapper'>
-            {moviesArr && moviesArr.map((movie, i) => {
+            {moviesArr && moviesArr.map((movie) => {
               return (
                 <li 
                   className='moviesCardList__item'

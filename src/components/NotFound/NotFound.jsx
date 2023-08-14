@@ -4,13 +4,10 @@ import { Link, useNavigate } from 'react-router-dom'
 
 
 function NotFound() {
-const navigate = useNavigate()
 
-const goBack = () => {
-  navigate(-1)
-}
+const navigate = useNavigate();
+const goBack = () => navigate(-1)
 
-      
   return (
     <section className='notFound'>
         <div className='notFound__wrapper'>
@@ -18,7 +15,7 @@ const goBack = () => {
             <p className='notFound__text'>Страница не найдена</p>
         </div>
         
-        <Link className='notFound__link' to={goBack}>Назад</Link>
+        <Link className='notFound__link' to={goBack(-1)}>Назад</Link>
     </section>
   )
 }
