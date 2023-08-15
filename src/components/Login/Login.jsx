@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Login.css'
 import { Link } from 'react-router-dom'
-import Form from '../Form/Form'
+import Form from '../Form/Form';
+import{ useFormAndValidation } from '../../hooks/useFormAndValidation'
 
-function Login() {
+function Login({ onAuthorization, formError }) {
+  const { values, handleChange, errors, isValid, setIsValid, resetForm } = useFormAndValidation();
+  const [isDisabled, setIsDisabled] = useState(false)
+  
+    function handleSubmit(e) {
+    e.preventDefault();
+    onAuthorization(values.email.trim(), values.password);
+    resetForm();
+  }
+
+  useEffect(() => {
+    if(!values.email || !values.password) {
+      setIsDisabled(true)
+    } else {
+      setIsDisabled(false)
+    }
+  }, [values.email, values.password])
+
   return (
     <section className='login'>
       <Link to={'/'}>
@@ -14,38 +32,53 @@ function Login() {
         name='login'
         title='Рады видеть!'
         btnText = 'Войти'
+        isValid={isValid}
+        isDisabled={isDisabled}
+        handleSubmit={handleSubmit}
+        errorText={formError}
       >
 
-
-    <fieldset className='form__fieldset'>
+        <fieldset className='form__fieldset'>
           <label className='form__label'>
             E-mail
             <input
-              className='form__input'
+              className={errors.email
+                ? `form__input form__input_error`
+                : `form__input`}
               required
               autoComplete='off'
               type='email'
               name='email'
+              pattern="^[\w]+@[a-zA-Z]+\.[a-zA-Z]{1,3}$"
               placeholder='E-mail'
+              value={values.email || ''}
+              onChange={handleChange}
              />
-             <span className='form__validation-error form__validation-error_visible email-error'>
-                Тут будет ошибка емэйла, которая не влезает в контейнер, точнее влезает, но мы сделаем так, чтобы не влезла ну давайте по приколу третью строку сделаем чтобы лайн-кламп проверить почему нет-то
+             <span 
+              className={`
+                form__validation-error
+                ${!isValid ? 'form__validation-error_visible' : ''}`}>
+                {errors.email || ''}
              </span>
           </label>
 
           <label className='form__label'>
             Пароль
             <input
-              className='form__input form__input_error'
+              className={errors.password
+                ? `form__input form__input_error`
+                : `form__input`}
               required
               type='password'
-              minLength={4}
-              maxLength={16}
               name='password'
               placeholder='Пароль'
+              value={values.password || ''}
+              onChange={handleChange}
              />
-             <span className='form__validation-error form__validation-error_visible password-error'>
-                Тут будет ошибка пароля
+             <span className={`
+                form__validation-error
+                ${!isValid ? 'form__validation-error_visible' : ''}`}>
+                {errors.password}
              </span>
           </label>
         </fieldset>

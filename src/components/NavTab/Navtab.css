@@ -18,12 +18,12 @@
   list-style: none;
   padding: 0;
   display: flex;
-  /* margin: auto 0; */
   column-gap: 10px;
   margin: 0;
 }
 
-.navtab__list-item {
+.navtab__link {
+  text-decoration: none;
   height: 36px;
   width: 96px;
   background-color: #303030;
@@ -40,25 +40,20 @@
   font-weight: 500;
 }
 
-.navtab__list-item:hover {
+.navtab__link:hover {
   opacity: .8;
 }
 
+.navtab__link:visited {
+  color: #fff;
+}
+
 @media (max-width: 420px) {
-  .navtab__list-item {
+  .navtab__link {
     font-size: 10px;
     height: 26px;
     width: 82px;
     line-height: 26px;
   }
 
-}
-
-.navtab__link {
-  text-decoration: none;
-  color: #fff;
-}
-
-.navtab__link:visited {
-  color: #fff;
 }

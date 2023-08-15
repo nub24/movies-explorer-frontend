@@ -1,34 +1,27 @@
 import React from 'react'
 import './MoviesCardList.css'
-import MoviesCard from '../MoviesCard/MoviesCard'
+import MoviesCard from '../MoviesCard/MoviesCard';
 
-function MoviesCardList({ moviesArr }) {
-  
+function MoviesCardList({ moviesArr, savedMovies, onSaveHandler, onDeleteHandler }) {
   return (
-    <section className='moviesCardList'>
+    <section className='moviesCardList '>
         <ul className='moviesCardListWrapper'>
-            {moviesArr.map((movie, i) => {
+            {moviesArr && moviesArr.map((movie) => {
               return (
                 <li 
                   className='moviesCardList__item'
-                  key={i}
+                  key={movie.id || movie._id}
                   >
                   <MoviesCard
-                    img={movie.img}
-                    name={movie.name}
-                    duration={movie.duration}
+                    movie={movie}
+                    savedMovies={savedMovies}
+                    onSaveHandler={onSaveHandler}
+                    onDeleteHandler={onDeleteHandler}
                   />
                 </li>
                )
             })}
         </ul>
-
-        <button
-          className='moviesCardList__more-btn'
-          type='button'
-          >Ещё
-        </button>
-        
     </section>
   )
 }

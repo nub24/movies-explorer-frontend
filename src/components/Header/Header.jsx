@@ -4,21 +4,9 @@ import Sidebar from "../Sidebar/Sidebar";
 import { useState, useEffect } from "react";
 import Navigation from "../Navigation/Navigation";
 
-function Header({ loggedIn }) {
+function Header({ loggedIn, width }) {
   const [sidebarOpened, setSidebarOpened] = useState(false);
-
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = (e) => {
-        setWidth(window.innerWidth)    
-    }
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, []);
-
+  
   useEffect(() => {
     if (width > 768) {
       setSidebarOpened(false);

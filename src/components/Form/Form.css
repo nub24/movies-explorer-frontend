@@ -128,6 +128,7 @@
   margin: 0;
   padding: 0;
   height: auto;
+  border-radius: 8px 0 0 8px;
 }
 
 .form__input_profile:focus {
@@ -225,7 +226,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity .3s ease-in-out;
 }
 
 .form__errortext_visible {
@@ -253,6 +254,12 @@
 
 .form__btn-submit:hover {
   opacity: .8;
+}
+
+.form__btn-submit:disabled {
+  cursor: default;
+  background-color: #8b8b8b;
+  opacity: 1;
 }
 
 @media (max-width: 460px) {

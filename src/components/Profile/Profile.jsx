@@ -1,23 +1,69 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Profile.css';
 import Form from '../Form/Form';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import{ useFormAndValidation } from '../../hooks/useFormAndValidation'
 
-function Profile() {
 
-  
+function Profile({
+  onUpdateProfile,
+  formError,
+  onSignOut,
+  isLoading
+}) {
+  const currentUser = useContext(CurrentUserContext);
+  const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation();
+  const [editMode, setEditMode] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(false)
+
+  useEffect(() => {
+    if (currentUser) {
+      resetForm(currentUser)
+    }
+  }, [currentUser, resetForm])
+
+  useEffect(() => {
+    formError ? setEditMode(true) : setEditMode(false)
+  }, [formError])
+
+  useEffect(() => {
+    if (currentUser.name === values.name && currentUser.email === values.email) {
+      setIsDisabled(true)
+    } else {
+      setIsDisabled(false)
+    }
+  }, [values.name, values.email])
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    onUpdateProfile({
+      email: values.email.trim(),
+      name: values.name.trim()
+    })
+  }
 
   return (
     <section className='profile'>
         <Form
           name='profile'
-          title={`Привет, Виталий!`}
+          title={`Привет, ${currentUser.name}`}
           btnText = 'Сохранить'
+          isValid={isValid}
+          editMode={editMode}
+          setEditMode= {setEditMode}
+          handleSubmit={handleSubmit}
+          errorText={formError}
+          onSignOut={onSignOut}
+          isLoading={isLoading}
+          isDisabled={isDisabled}
         >
         <fieldset className='form__fieldset form__fieldset_profile'>
             <label className='form__label-profile'>
               Имя
-              <input 
-              className='form__input form__input_profile' 
+              <input
+              className={errors.name
+                ? `form__input form__input_profile form__input_error`
+                : `form__input form__input_profile`}
               required
               type='text'
               minLength={2}
@@ -25,13 +71,16 @@ function Profile() {
               placeholder='Имя'
               autoComplete='off'
               name='name'
+              value={values.name || ''}
+              onChange={handleChange}
+              disabled={!editMode}
               />
-              <span className='
+              <span className={`
                 form__validation-error
-                form__validation-error_visible
                 form__validation-error_profile
-                name-error'>
-                Тут ошибка
+                ${!isValid ? 'form__validation-error_visible' : ''}
+              `}>
+                {errors.name}
               </span>
             </label>
 
@@ -40,20 +89,24 @@ function Profile() {
             <label className='form__label-profile'>
               E-mail
               <input
-              className='form__input form__input_profile'
+              className={errors.email
+                ? `form__input form__input_profile form__input_error`
+                : `form__input form__input_profile`}
               name='email'
               type='email'
               placeholder='E-mail'
               autoComplete='off'
-              disabled
+              disabled={!editMode}
               required
+              value={values.email || ''}
+              onChange={handleChange}
               />
-              <span className='
+              <span span className={`
                 form__validation-error
-                form__validation-error_visible
                 form__validation-error_profile
-                email-error'>
-                тут пока тоже ошибка но она настолько большая что при всём своём желании не помещается в контейнер. Ну и хрен с ней
+                ${!isValid ? 'form__validation-error_visible' : ''}
+              `}>
+                {errors.email}
               </span>
             </label>
         </fieldset>
